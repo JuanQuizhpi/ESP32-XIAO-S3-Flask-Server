@@ -1,20 +1,13 @@
-
-# Author: vlarobbyk
-# Version: 1.0
-# Date: 2024-10-20
-# Description: A simple example to process video captured by the ESP32-XIAO-S3 or ESP32-CAM-MB in Flask.
-
-
 from flask import Flask, render_template, Response, stream_with_context, Request
 from io import BytesIO
-
 import cv2
 import numpy as np
 import requests
+import time
 
 app = Flask(__name__)
 # IP Address
-_URL = 'http://10.0.0.3'
+_URL = 'http://192.168.18.53'
 # Default Streaming Port
 _PORT = '81'
 # Default streaming route
@@ -23,50 +16,79 @@ SEP = ':'
 
 stream_url = ''.join([_URL,SEP,_PORT,_ST])
 
+# Crear el sustractor de fondo adaptativo
+back_sub = cv2.createBackgroundSubtractorMOG2()
 
+# Función para calcular FPS
+def calculate_fps(prev_time):
+    new_time = time.time()
+    fps = 1 / (new_time - prev_time)
+    return fps, new_time
+
+# 1. Método para capturar el video
 def video_capture():
     res = requests.get(stream_url, stream=True)
     for chunk in res.iter_content(chunk_size=100000):
-
         if len(chunk) > 100:
             try:
+                # Convertimos chunk a imagen
                 img_data = BytesIO(chunk)
                 cv_img = cv2.imdecode(np.frombuffer(img_data.read(), np.uint8), 1)
-                gray = cv2.cvtColor(cv_img, cv2.COLOR_BGR2GRAY)
-                N = 537
-                height, width = gray.shape
-                noise = np.full((height, width), 0, dtype=np.uint8)
-                random_positions = (np.random.randint(0, height, N), np.random.randint(0, width, N))
                 
-                noise[random_positions[0], random_positions[1]] = 255
-
-                noise_image = cv2.bitwise_or(gray, noise)
-
-                total_image = np.zeros((height, width * 2), dtype=np.uint8)
-                total_image[:, :width] = gray
-                total_image[:, width:] = noise_image
-
-                (flag, encodedImage) = cv2.imencode(".jpg", total_image)
-                if not flag:
-                    continue
-
-                yield(b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + 
-                bytearray(encodedImage) + b'\r\n')
+                # Retornamos el frame capturado
+                yield cv_img
 
             except Exception as e:
-                print(e)
+                print(f"Error capturando el frame: {e}")
                 continue
+
+# 2. Método para procesar el frame
+def process_frame(cv_img, prev_time):
+    # Convertimos la imagen a escala de grises
+    gray = cv2.cvtColor(cv_img, cv2.COLOR_BGR2GRAY)
+    
+    # Aplicar sustracción de fondo adaptativa
+    fg_mask = back_sub.apply(gray)
+
+    # Calcular y mostrar los FPS
+    fps, prev_time = calculate_fps(prev_time)
+    cv2.putText(cv_img, f"FPS: {fps:.2f}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+
+    # Crear total_image con 3 espacios de ancho
+    height, width = gray.shape
+    total_image = np.zeros((height, width * 3, 3), dtype=np.uint8)
+    
+    # Colocar las diferentes vistas en `total_image`
+    total_image[:, :width] = cv_img  # Imagen original con FPS
+    total_image[:, width:width*2] = cv2.cvtColor(gray, cv2.COLOR_GRAY2BGR)  # Escala de grises
+    total_image[:, width*2:] = cv2.cvtColor(fg_mask, cv2.COLOR_GRAY2BGR)  # Sustracción de fondo
+
+    # Retornar la imagen procesada
+    return total_image, prev_time
+
+# 3. Método para el flujo de video completo (captura + procesamiento)
+def video_stream():
+    prev_time = time.time()
+    for frame in video_capture():
+        # Procesamos cada frame capturado
+        processed_frame, prev_time = process_frame(frame, prev_time)
+
+        # Codificar la imagen procesada para transmitirla
+        (flag, encodedImage) = cv2.imencode(".jpg", processed_frame)
+        if not flag:
+            continue
+
+        # Enviar el frame procesado
+        yield (b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + bytearray(encodedImage) + b'\r\n')
 
 @app.route("/")
 def index():
     return render_template("index.html")
 
-
 @app.route("/video_stream")
-def video_stream():
-    return Response(video_capture(),
+def stream_video():
+    return Response(video_stream(),
                     mimetype="multipart/x-mixed-replace; boundary=frame")
 
 if __name__ == "__main__":
     app.run(debug=False)
-
