@@ -29,3 +29,6 @@ El filtro aplica las siguientes condiciones
 
 ### Filtro Gamma
 + Mejora el brillo de manera controlada y personalizada mediante el ajuste de 𝛾, Este filtro es útil si se quiere un ajuste suave sin cambiar significativamente el contraste.
+
+![IluminacionMejora](https://imgur.com/ol17x5p.png)
+
