@@ -41,3 +41,7 @@ El filtro aplica las siguientes condiciones
 
 ![IluminacionMejora](https://imgur.com/ol17x5p.png)
 
+
+### Método que genere un porcentaje de ruido de sal o pimienta en un video
+
+![IluminacionMejora](https://imgur.com/8oh4APl.png)
