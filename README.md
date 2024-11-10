@@ -2,6 +2,11 @@
 ## Realizado por : Juan Francisco Quizhpi Fajardo
 ### Detección de movimiento a través de resta de imágenes, convolución, aplicación de filtros para reducción de ruido y operaciones morfológicas en la mejora de imágenes médicas.
 ---
++ Función que permita mostrar FPS
+
+![MostrarFPS](https://imgur.com/j29qUme.png)
+
+
 + Aplique distintos filtros que permitan mejorar los problemas de iluminación vistos en clase. Para ello debe
 probar la ecualización de histograma, el métod CLAHE y uno más que Usted investigue.
 
