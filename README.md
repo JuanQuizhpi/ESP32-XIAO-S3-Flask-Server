@@ -6,6 +6,10 @@
 
 ![MostrarFPS](https://imgur.com/j29qUme.png)
 
++ Función que permita detectar movimiento Adaptive Background Substraction
+
+![MostrarFPS](https://imgur.com/S8IJ8np.png)
+
 
 + Aplique distintos filtros que permitan mejorar los problemas de iluminación vistos en clase. Para ello debe
 probar la ecualización de histograma, el métod CLAHE y uno más que Usted investigue.
