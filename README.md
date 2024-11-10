@@ -20,3 +20,6 @@ $$
 El filtro aplica las siguientes condiciones
 + Si 𝛾<1, el filtro aumenta el brillo de las áreas oscuras sin afectar mucho las áreas brillantes
 + si 𝛾>1, se reduce el brillo de las áreas más claras.
+
+### Comparación del filtro gamma con la Ecualización del Histograma
++ Como ya sabemos las **ecualización del histograma** es una técnica con la que se redistribuye los valores de intensidad de pixeles de la imagen para mejorar su constraste. En comparación al **filtro gamma** la **ecualización de histograma** no debende del parametro 𝛾 sino que se centra en distribuir los valores de intensidad de manera uniforme.
