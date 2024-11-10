@@ -39,9 +39,14 @@ El filtro aplica las siguientes condiciones
 ### Filtro Gamma
 + Mejora el brillo de manera controlada y personalizada mediante el ajuste de 𝛾, Este filtro es útil si se quiere un ajuste suave sin cambiar significativamente el contraste.
 
-![IluminacionMejora](https://imgur.com/ol17x5p.png)
+![Filtro gamma](https://imgur.com/ol17x5p.png)
 
 
 ### Método que genere un porcentaje de ruido de sal o pimienta en un video
 
-![IluminacionMejora](https://imgur.com/8oh4APl.png)
+![SalPimienta](https://imgur.com/8oh4APl.png)
+
+### Aplicar los siguientes filtros: mediana, blur, Gaussiano
+
+![FIltrosMBG](https://imgur.com/89UJdhR.png)
+
