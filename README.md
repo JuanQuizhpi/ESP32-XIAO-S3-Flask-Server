@@ -12,11 +12,11 @@ $$
 I_{\text{salida}} = I_{\text{entrada}}^{\gamma}
 $$
 
-$$
-I_{\text{salida}}
-$$
 
 + I salida es el valor de intensidad del píxel después de aplicar la correción gamma es nuestro resultado
 + I entrada es el valor de la intensidad del píxel original este es normalizado entre 0 y 1
-+ "Y" Este es el valor de coreción gamma el cual define el valor de ajuste del brillo 
++ "𝛾" Este es el valor de coreción gamma el cual define el valor de ajuste del brillo 
 
+El filtro aplica las siguientes condiciones
++ Si 𝛾<1, el filtro aumenta el brillo de las áreas oscuras sin afectar mucho las áreas brillantes
++ si 𝛾>1, se reduce el brillo de las áreas más claras.
