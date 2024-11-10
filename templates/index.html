@@ -19,16 +19,23 @@
                flex-direction: column;
                align-items: center;
           }
+          .trackbar {
+            margin: 10px;
+            width: 100%;
+        }
      </style>
      <title>Videostreaming ESP32-CAM</title>
 </head>
 <body class = "container">
      <div class="containerHeader">
+          <h1>Realizado por: Juan Francisco Quizhpi Fajardo</h1>
           <h1>Video Streaming</h1>
           <img src="{{ url_for('static', filename='Header.webp') }}" alt="Image header" width="50%">
      </div>
-     <h1>Calculo FPS en imagenes y detección de movimiento con BackgroundSubtractor</h1>
-     <img src="{{ url_for('stream_video') }}">
-     <h1>Mejorar los problemas de iluminación</h1>
+     <h1>Parte 1-A - Parte 1-B1</h1>
+     <img src="{{ url_for('video_stream') }}">
+     <h1>Parte 1-B2</h1>
+    <img src="{{ url_for('video_feed') }}" alt="Mosaico de imágenes" width="70%">
+     
 </body>
 </html>
