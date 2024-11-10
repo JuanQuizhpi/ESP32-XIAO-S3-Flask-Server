@@ -23,3 +23,9 @@ El filtro aplica las siguientes condiciones
 
 ### Comparación del filtro gamma con la Ecualización del Histograma
 + Como ya sabemos las **ecualización del histograma** es una técnica con la que se redistribuye los valores de intensidad de pixeles de la imagen para mejorar su constraste. En comparación al **filtro gamma** la **ecualización de histograma** no debende del parametro 𝛾 sino que se centra en distribuir los valores de intensidad de manera uniforme.
+
+### Comparación con el Filtro CLAHE
++ **CLAHE** es considera una mejora de la ecualización de histograma, **CLAHE** se realiza localmente en la imagen, dividiéndola en pequeñas regiones (tiles) y aplicando la ecualización en cada una de ellas.
+
+### Filtro Gamma
++ Mejora el brillo de manera controlada y personalizada mediante el ajuste de 𝛾, Este filtro es útil si se quiere un ajuste suave sin cambiar significativamente el contraste.
