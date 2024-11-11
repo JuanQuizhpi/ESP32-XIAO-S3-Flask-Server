@@ -51,3 +51,9 @@ El filtro aplica las siguientes condiciones
 ![FIltrosMBG](https://imgur.com/89UJdhR.png)
 ![FIltrosMBG](https://imgur.com/9eHyHFR.png)
 
+### Aplicar al menos 2 algoritmos de detección de bordes y comparar los resultados de usar o no filtros de suavizado.
++ Sobel
+
+![FIltrosSobel](https://imgur.com/jl5CV9P.png)
+
+
