@@ -78,4 +78,8 @@ El filtro aplica las siguientes condiciones
 
 ![FIltrosDilatacion](https://imgur.com/YzPQ4z3.png)
 
++ Original
+
+![FIltrosDilatacion](https://imgur.com/eS84dA8.png)
+  
 
