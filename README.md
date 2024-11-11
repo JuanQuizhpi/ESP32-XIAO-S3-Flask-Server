@@ -72,3 +72,10 @@ El filtro aplica las siguientes condiciones
 + Dilatación
 
 ![FIltrosDilatacion](https://imgur.com/QnYaaLD.png)
+
+
++ Top Hat, Black Hat, Imagen Original + (Top Hat – Black Hat)
+
+![FIltrosDilatacion](https://imgur.com/YzPQ4z3.png)
+
+
