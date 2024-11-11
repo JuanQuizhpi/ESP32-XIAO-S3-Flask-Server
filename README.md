@@ -67,3 +67,8 @@ El filtro aplica las siguientes condiciones
 + Erosión
 
 ![FIltrosErosion](https://imgur.com/l1Tdu0p.png)
+
+
++ Dilatación
+
+![FIltrosDilatacion](https://imgur.com/QnYaaLD.png)
