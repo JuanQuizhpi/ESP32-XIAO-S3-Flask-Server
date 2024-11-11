@@ -56,4 +56,9 @@ El filtro aplica las siguientes condiciones
 
 ![FIltrosSobel](https://imgur.com/jl5CV9P.png)
 
++ Canny
+
+![FIltrosSobel](https://imgur.com/AlrfOVn.png)
+
+
 
