@@ -58,7 +58,12 @@ El filtro aplica las siguientes condiciones
 
 + Canny
 
-![FIltrosSobel](https://imgur.com/AlrfOVn.png)
+![FIltrosCanny](https://imgur.com/AlrfOVn.png)
 
 
+### Seleccionar 3 imágenes médicas a las que se les aplicarán las operaciones morfológicas. Las imágenes deben estar en escala de grises y deben corresponder a radiografías, angiografías, TACs, etc
++ Using morphological transforms to enhance the contrast of medical images1
 
++ Erosión
+
+![FIltrosErosion](https://imgur.com/l1Tdu0p.png)
