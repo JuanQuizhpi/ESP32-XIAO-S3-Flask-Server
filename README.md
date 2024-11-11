@@ -49,4 +49,5 @@ El filtro aplica las siguientes condiciones
 ### Aplicar los siguientes filtros: mediana, blur, Gaussiano
 
 ![FIltrosMBG](https://imgur.com/89UJdhR.png)
+![FIltrosMBG](https://imgur.com/9eHyHFR.png)
 
